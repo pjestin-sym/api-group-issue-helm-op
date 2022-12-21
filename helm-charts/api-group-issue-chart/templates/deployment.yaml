@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+spec:
+  selector:
+    matchLabels:
+      internal.symphony.com/name: wrong-api-group
+  template:
+    metadata:
+      labels:
+        internal.symphony.com/name: wrong-api-group
+    spec:
+      containers:
+        - name: wrong-api-group
+          image: nginx

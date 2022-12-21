@@ -1,0 +1,9 @@
+apiVersion: agi.symphony.com/v1
+kind: ApiGroupIssue
+metadata:
+  name: apigroupissue-sample
+spec:
+  # Default values copied from <project_dir>/helm-charts/api-group-issue-chart/values.yaml
+  {}
+  
+  

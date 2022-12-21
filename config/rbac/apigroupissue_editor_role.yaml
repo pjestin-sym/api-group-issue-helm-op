@@ -1,0 +1,31 @@
+# permissions for end users to edit apigroupissues.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: apigroupissue-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: api-group-issue-helm-op
+    app.kubernetes.io/part-of: api-group-issue-helm-op
+    app.kubernetes.io/managed-by: kustomize
+  name: apigroupissue-editor-role
+rules:
+- apiGroups:
+  - agi.symphony.com
+  resources:
+  - apigroupissues
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - agi.symphony.com
+  resources:
+  - apigroupissues/status
+  verbs:
+  - get

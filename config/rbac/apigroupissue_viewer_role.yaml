@@ -1,0 +1,27 @@
+# permissions for end users to view apigroupissues.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: apigroupissue-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: api-group-issue-helm-op
+    app.kubernetes.io/part-of: api-group-issue-helm-op
+    app.kubernetes.io/managed-by: kustomize
+  name: apigroupissue-viewer-role
+rules:
+- apiGroups:
+  - agi.symphony.com
+  resources:
+  - apigroupissues
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - agi.symphony.com
+  resources:
+  - apigroupissues/status
+  verbs:
+  - get

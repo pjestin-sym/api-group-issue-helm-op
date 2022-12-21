@@ -1,0 +1,6 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: agi.symphony.com
+  version: v1
+  kind: ApiGroupIssue
+  chart: helm-charts/api-group-issue-chart
+#+kubebuilder:scaffold:watch
