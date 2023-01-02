@@ -57,5 +57,17 @@ rules:
   - ""
   resources:
   - "configmaps"
+- verbs:
+  - "*"
+  apiGroups:
+  - ""
+  resources:
+  - "services"
+- verbs:
+  - "*"
+  apiGroups:
+  - "networking.k8s.io"
+  resources:
+  - "ingresses"
 
 #+kubebuilder:scaffold:rules

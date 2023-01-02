@@ -1,16 +1,21 @@
+{{ $namespace := .Release.Namespace }}
+
+{{- range until 10 }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy
+  name: {{ $namespace }}-api-group-issue-deploy-{{ . }}
 spec:
   selector:
     matchLabels:
-      internal.symphony.com/name: wrong-api-group
+      internal.symphony.com/name: api-group-issue
   template:
     metadata:
       labels:
-        internal.symphony.com/name: wrong-api-group
+        internal.symphony.com/name: api-group-issue
     spec:
       containers:
-        - name: wrong-api-group
+        - name: api-group-issue
           image: nginx
+{{- end }}

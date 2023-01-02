@@ -1,0 +1,17 @@
+{{ $namespace := .Release.Namespace }}
+
+{{- range until 10 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $namespace }}-api-group-issue-svc-{{ . }}
+spec:
+  selector:
+    app.kubernetes.io/name: proxy
+  ports:
+  - name: name-of-service-port
+    protocol: TCP
+    port: 80
+    targetPort: http-web-svc
+{{- end }}
